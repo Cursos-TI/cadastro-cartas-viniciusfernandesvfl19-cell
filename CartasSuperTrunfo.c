@@ -1,12 +1,8 @@
-#include <stdio.h>
-
-// Desafio Super Trunfo - Países
-// Tema 1 - Cadastro das cartas
-// Objetivo: No nível novato você deve criar as cartas representando as cidades utilizando scanf para entrada de dados e printf para exibir as informações.
+# include <stdio.h>
 
 int main() {
-  
-     //=========Carta 1=========
+
+    //=========Carta 1=========
 
    char estado[4];
    printf("Digite o Estado: ");
@@ -37,7 +33,12 @@ int main() {
    scanf("%d", &pontoTuristico);
 
    double densidadePopulacional = populacao / area;
+
    double PIBperCapita = (PIB*1000000000) /(double)populacao;
+
+   double inversoDensidade = 1.0 / densidadePopulacional;
+
+   float superPoder = (float)populacao + (float)area + (float)PIB + (float)pontoTuristico + (float)PIBperCapita + (float)inversoDensidade;
 
     //=========Carta 2=========
 
@@ -70,7 +71,13 @@ int main() {
    scanf("%d", &pontoTuristico2);
 
    double densidadePopulacional2 = populacao2 / area2;
+
    double PIBperCapita2 = (PIB2*1000000000)/(double) populacao2;
+
+   double inversoDensidade2 = 1.0 / densidadePopulacional2;
+   
+   float superPoder2 = (float)populacao2 + (float)area2 + (float)PIB2 + (float)pontoTuristico2 + (float)PIBperCapita2 + (float)inversoDensidade2;
+
 
    printf("\nCarta 1\n");
    printf("Estado: %s \n", estado);
@@ -94,5 +101,23 @@ int main() {
    printf("Densidade Populacional: %.2f \n", densidadePopulacional2);
    printf("PIB per Capita: %.2f \n", PIBperCapita2);
 
-return 0;
-} 
+   printf("\n===== COMPARAÇÃO DAS CARTAS =====\n");
+
+// Se populacao > populacao2 for verdade, mostra 1. Se não, mostra 0.
+printf("População: %d\n", populacao > populacao2);
+
+printf("Área: %d\n", area > area2);
+
+printf("PIB: %d\n", PIB > PIB2);
+
+printf("Pontos Turísticos: %d\n", pontoTuristico > pontoTuristico2);
+
+// REGRA INVERTIDA: Carta 1 vence se for MENOR que a Carta 2
+printf("Densidade Populacional: %d\n", densidadePopulacional < densidadePopulacional2);
+
+printf("PIB per Capita: %d\n", PIBperCapita > PIBperCapita2);
+
+printf("Super Poder: %d\n", superPoder > superPoder2);
+
+    return 0;
+}
